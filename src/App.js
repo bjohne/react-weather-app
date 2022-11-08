@@ -1,25 +1,31 @@
 import React from "react";
+
 import "./App.css";
 import Weather from "./Weather";
+import image from "./img/CloudsReact.png";
 
 export default function App() {
   return (
     <div className="App">
-      <div className="container">
-        <Weather />
-        <button className="btn btn-primary">hallo</button>
-        <p>
-          open-sourced at {""}
+      <div
+        className="BackgroundImage"
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      >
+        <div className="container">
+          <Weather />
+        </div>
+        <div className="open-source-link">
           <a
-            className="0pen-source-link"
-            href="https://github.com/bjohne/react-weather-app"
+            href="https://github.com/bjohne/weather-app-react"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
           >
-            Github
-          </a>{" "}
-          by Betina Johne{" "}
-        </p>
+            Open-source code&nbsp;
+          </a>
+          by Betina Johne
+        </div>
       </div>
     </div>
   );
