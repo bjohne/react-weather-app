@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
+import { Circles } from "react-loader-spinner";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -88,6 +89,16 @@ export default function Weather(props) {
 
     axios.get(apiUrl).then(handleResponse);
 
-    return "Loading...";
+    return (
+      <Circles
+        height="80"
+        width="80"
+        color="#EBB219"
+        ariaLabel="circles-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    );
   }
 }
