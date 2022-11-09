@@ -1,60 +1,93 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import "./Weather.css";
 
-export default function Weather() {
-  return (
-    <div className="Weather">
-      <div className="row">
-        <div className="col-sm-6">
-          <form className="form">
-            <input type="search" placeholder="Enter city" autocomplete="off" />
-            <button>
-              <i className="fas fa-search"></i>
-            </button>
+export default function Weather(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
 
-            <button className="btn-currentLocation">
-              <i className="fas fa-map-marker-alt"></i>
-            </button>
-          </form>
-          <br />
+  function handleResponse(response) {
+    console.log(response);
+    setWeatherData({
+      ready: true,
+      temperature: Math.round(response.data.temperature.current),
+      wind: Math.round(response.data.wind.speed),
+      humidity: response.data.temperature.humidity,
+      city: response.data.city,
+      description: response.data.condition.description,
+      iconUrl:
+        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png",
+      date: "Wednesday 07:00",
+    });
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <div className="row">
+          <div className="col-sm-6">
+            <form className="form">
+              <input
+                type="search"
+                placeholder="Enter city"
+                autoComplete="off"
+              />
+              <button>
+                <i className="fas fa-search"></i>
+              </button>
+
+              <button className="btn-currentLocation">
+                <i className="fas fa-map-marker-alt"></i>
+              </button>
+            </form>
+            <br />
+          </div>
+          <div className="col-sm-2"></div>
+          <div className="col-sm-4">
+            <div className="cityFirst">{weatherData.city}</div>
+            <br />
+            <ul className="list-group">
+              <li>
+                Humidity:{""}
+                <span className="humidity"> {weatherData.humidity}</span> %
+              </li>
+              <li>
+                Wind:{""}
+                <span className="wind"> {weatherData.wind}</span> km/h
+              </li>
+              <li className="currentDescription text-capitalize">
+                {weatherData.description}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="col-sm-2"></div>
-        <div className="col-sm-4">
-          <div className="cityFirst">Amsterdam</div>
+        <h1 className="currentTemperature">
+          <span className="currentTempDegrees">{weatherData.temperature}</span>
+          <span className="currentTempUnit">°C</span>
+        </h1>
+        <p className="currentIcon">
+          <img src={weatherData.iconUrl} alt="Icon" />
+        </p>
+        <div className="forecast-text">
+          This week's weather in {""}
+          <span className="citySecond">{weatherData.city}</span>
           <br />
-          <ul className="list-group">
-            <li>
-              Humidity:
-              <span className="humidity"> 65</span>%
-            </li>
-            <li>
-              Wind:
-              <span className="wind">12</span>km/h
-            </li>
-            <li className="currentDescription">Drizzle</li>
-          </ul>
+          <span className="last-update">
+            last update :{" "}
+            <span className="current-date">{weatherData.date}</span>
+          </span>
         </div>
-      </div>
-      <h1 className="currentTemperature">
-        <span className="currentTempDegrees">23</span>
-        <span className="currentTempUnit">°C</span>
-      </h1>
-      <p className="currentIcon">
-        <img
-          src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-          alt="Icon"
-        />
-      </p>
-      <div className="forecast-text">
-        This week's weather in {""}
-        <span className="citySecond">Amsterdam</span>
         <br />
-        <span className="last-update">
-          last update : <span className="current-date"></span>
-        </span>
+        <div className="weather-forecast"></div>
       </div>
-      <br />
-      <div className="weather-forecast"></div>
-    </div>
-  );
+    );
+  } else {
+    let units = "metric";
+
+    const apiKey = "31596ta47a643ofdbb992da3f1ed09dc";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=${units}`;
+
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }

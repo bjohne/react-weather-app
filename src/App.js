@@ -14,7 +14,7 @@ export default function App() {
         }}
       >
         <div className="container">
-          <Weather />
+          <Weather defaultCity="Amsterdam" />
         </div>
         <div className="open-source-link">
           <a
