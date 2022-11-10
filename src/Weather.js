@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
 import { Circles } from "react-loader-spinner";
 
 export default function Weather(props) {
@@ -17,7 +18,7 @@ export default function Weather(props) {
       description: response.data.condition.description,
       iconUrl:
         "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png",
-      date: "Wednesday 07:00",
+      date: new Date(response.data.time * 1000),
     });
   }
 
@@ -72,10 +73,12 @@ export default function Weather(props) {
           This week's weather in {""}
           <span className="citySecond">{weatherData.city}</span>
           <br />
-          <span className="last-update">
+          <div className="last-update">
             last update :{" "}
-            <span className="current-date">{weatherData.date}</span>
-          </span>
+            <span className="current-date">
+              <FormattedDate date={weatherData.date} />
+            </span>
+          </div>
         </div>
         <br />
         <div className="weather-forecast"></div>

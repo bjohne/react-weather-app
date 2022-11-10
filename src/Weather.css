@@ -76,11 +76,11 @@ h1 {
 
 .current-date {
   font-size: 14px;
-  text-align: right;
+  text-align: left;
 }
 
 .last-update {
   font-size: 14px;
-  text-align: right;
+  text-align: left;
   opacity: 0.8;
 }
