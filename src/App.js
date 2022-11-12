@@ -18,7 +18,7 @@ export default function App() {
         </div>
         <div className="open-source-link">
           <a
-            href="https://github.com/bjohne/weather-app-react"
+            href="https://github.com/bjohne/react-weather-app"
             target="_blank"
             rel="noreferrer"
           >
