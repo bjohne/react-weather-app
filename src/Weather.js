@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import { Circles } from "react-loader-spinner";
 
 export default function Weather(props) {
@@ -56,6 +57,7 @@ export default function Weather(props) {
         </form>
         <br />
         <WeatherInfo data={weatherData} />
+        <WeatherForecast city={weatherData.city} />
       </div>
     );
   } else {
