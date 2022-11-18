@@ -7,15 +7,24 @@ export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.city]);
+
   function handleResponse(response) {
     console.log(response.data);
     setForecast(response.data.daily);
     setLoaded(true);
   }
 
-  useEffect(() => {
-    setLoaded(false);
-  }, [props.city]);
+  function load() {
+    let city = props.city;
+    let units = "metric";
+    let apiKey = "31596ta47a643ofdbb992da3f1ed09dc";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=${units}`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
 
   if (loaded) {
     return (
@@ -28,19 +37,15 @@ export default function WeatherForecast(props) {
                   <WeatherForecastDay data={dailyforecast} />
                 </div>
               );
+            } else {
+              return null;
             }
-            return null;
           })}
         </div>
       </div>
     );
   } else {
-    let city = props.city;
-    let units = "metric";
-    let apiKey = "31596ta47a643ofdbb992da3f1ed09dc";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=${units}`;
-
-    axios.get(apiUrl).then(handleResponse);
+    load();
 
     return null;
   }
