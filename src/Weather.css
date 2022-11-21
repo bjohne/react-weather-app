@@ -2,7 +2,7 @@
   font-family: "Cairo", sans-serif;
 }
 
-.form input {
+.Weather .form input {
   color: #0e3b68;
   background: rgb(225, 228, 232, 0.8);
   border: 10px solid transparent;
@@ -10,7 +10,7 @@
   margin-block-end: 20px;
 }
 
-.form button {
+.Weather .form button {
   color: #0e3b68;
   background: rgb(225, 228, 232, 0.8);
   border: 10px solid transparent;
@@ -20,74 +20,80 @@
   transition: all 150ms ease-in-out;
 }
 
-.form button:hover {
+.Weather .form button:hover {
   background: rgba(169, 200, 206);
 }
 
-.cityFirst {
+.WeatherInfo .cityFirst {
   font-family: "Patrick Hand", cursive;
   color: #e1e4e8;
   font-size: 28px;
   margin-bottom: 0;
 }
-.citySecond {
+.WeatherInfo .citySecond {
   font-family: "Patrick Hand", cursive;
   font-size: 22px;
   color: rgb(225, 228, 232, 0.8);
 }
 
-.currentIcon {
+.WeatherInfo .currentIcon {
   font-size: 60px;
   margin-bottom: 20px;
 }
-.currentTemperature {
+.WeatherInfo .currentTemperature {
   font-size: 58px;
   line-height: 2em;
 }
-.currentTempUnit {
+.WeatherInfo .currentTempUnit {
   font-size: 18px;
   line-height: 1;
   position: relative;
   top: -30px;
 }
-.list-group {
+.WeatherInfo .list-group {
   margin-top: 20px;
 }
-.list-group li {
+.WeatherInfo .list-group li {
   color: #0e3b68;
   font-size: 17px;
   list-style-type: none;
   font-family: "Cairo", sans-serif;
 }
-.currentDescription:first-letter {
+.WeatherInfo .currentDescription:first-letter {
   text-transform: capitalize;
 }
 
-.weather-forecast-icon {
-  text-align: center;
-}
-
-.weather-forecast-date {
-  font-size: 16px;
-  text-align: center;
-}
-
-.weather-forecast-temperatures {
-  font-size: 14px;
-  text-align: center;
-}
-
-.weather-forecast-temperatures-min {
-  opacity: 0.8;
-}
-
-.current-date {
+.WeatherInfo .current-date {
   font-size: 14px;
   text-align: left;
 }
 
-.last-update {
+.WeatherInfo .last-update {
   font-size: 14px;
   text-align: left;
   opacity: 0.8;
+}
+
+@media (max-width: 576px) {
+  .WeatherInfo {
+    text-align: center;
+  }
+  .WeatherInfo .list-group {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  .WeatherInfo .forecast-text {
+    font-size: 14px;
+    text-align: left;
+  }
+  .WeatherInfo .citySecond {
+    font-size: 16px;
+  }
+
+  .WeatherInfo .last-update {
+    font-size: 12px;
+  }
+  .WeatherInfo .current-date {
+    font-size: 12px;
+  }
 }

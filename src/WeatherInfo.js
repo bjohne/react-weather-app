@@ -8,14 +8,14 @@ export default function WeatherInfo(props) {
       <h1 className="cityFirst">{props.data.city}</h1>
 
       <div className="row">
-        <div className="col-sm-6">
+        <div className="col-sm-7">
           <div className=" currentTemperature">
             <img className="currentIcon" src={props.data.icon} alt="Icon" />
 
             <WeatherTemperature celsius={props.data.temperature} />
           </div>
         </div>
-        <div className="col-sm-6">
+        <div className="col-sm-5">
           <ul className="list-group">
             <li>
               Humidity:{""}
@@ -35,13 +35,12 @@ export default function WeatherInfo(props) {
         <div className="forecast-text">
           This week's weather in {""}
           <span className="citySecond">{props.data.city}</span>
-          <br />
-          <div className="last-update">
-            last update :{" "}
-            <span className="current-date">
-              <FormattedDate date={props.data.date} />
-            </span>
-          </div>
+        </div>
+        <div className="last-update">
+          last update :{" "}
+          <span className="current-date">
+            <FormattedDate date={props.data.date} />
+          </span>
         </div>
       </div>
       <br />
