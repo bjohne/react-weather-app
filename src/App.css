@@ -12,7 +12,7 @@
 }
 .App a {
   text-decoration: none;
-  color: #5a6486;
+  color: #a6a9b1;
 }
 .App a:hover {
   color: #02023b;
@@ -23,11 +23,11 @@
   padding-bottom: 5px;
   font-family: monospace;
   font-size: 14px;
-  color: #04608e;
+  color: #043e5b;
 }
 
 .App .container {
-  background: rgb(133, 168, 207, 0.3);
+  background: rgb(118, 156, 203, 0.6);
   max-width: 600px;
   margin: 30px auto;
   padding: 36px 36px 36px 52px;

@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css";
 import Weather from "./Weather";
-import image from "./img/BlueSky.png";
+import image from "./img/BlueSky3.png";
 
 export default function App() {
   return (
