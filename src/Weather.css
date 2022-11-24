@@ -4,7 +4,7 @@
 
 .Weather .form input {
   color: #0e3b68;
-  background: rgb(149, 191, 232, 0.8);
+  background: rgb(220, 224, 228, 0.8);
   border: 10px solid transparent;
   border-radius: 8px;
   margin-block-end: 20px;
@@ -12,7 +12,7 @@
 
 .Weather .form button {
   color: #0e3b68;
-  background: rgb(149, 191, 232, 0.8);
+  background: rgb(220, 224, 228, 0.8);
   border: 10px solid transparent;
   border-radius: 8px;
   margin-block-end: 20px;
