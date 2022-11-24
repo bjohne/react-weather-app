@@ -27,7 +27,7 @@
 .WeatherInfo .cityFirst {
   font-family: "Patrick Hand", cursive;
   color: rgb(225, 228, 232, 0.8);
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 0;
 }
 .WeatherInfo .citySecond {
