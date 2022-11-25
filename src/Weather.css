@@ -82,12 +82,22 @@
     margin-top: 0px;
     margin-bottom: 20px;
   }
+  .WeatherInfo .currentTemperature {
+    font-size: 52px;
+    line-height: 2em;
+  }
+  .WeatherInfo .currentTempUnit {
+    font-size: 16px;
+    line-height: 1;
+    position: relative;
+    top: -24px;
+  }
   .WeatherInfo .forecast-text {
     font-size: 14px;
     text-align: left;
   }
   .WeatherInfo .citySecond {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .WeatherInfo .last-update {
